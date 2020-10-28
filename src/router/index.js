@@ -1,22 +1,55 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect:'/home'
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/homepage',
+    name: 'HomePage',
+    meta: {
+      title:"首页"
+    },
+    component: () => import('@/views/homePage/HomePage.vue'),
+    //子路由
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/homePage/home/Home.vue')
+      },
+      {
+        path: '/product/:app_data',
+        name: 'Product',
+        component: () => import('@/views/homePage/product/Product.vue')
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/homePage/profile/Profile.vue')
+      }
+    ]
+  },
+  
+  
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/register/Register.vue')
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: () => import('@/views/cart/Cart.vue')
+  },
+  {
+    path: '/course',
+    name: 'Course',
+    component: () => import('@/views/course/Course.vue')
   }
 ]
 
