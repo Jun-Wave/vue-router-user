@@ -6,14 +6,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect:'/home'
-  },
-  {
-    path: '/homepage',
     name: 'HomePage',
     meta: {
       title:"首页"
     },
+    redirect:'/home',
     component: () => import('@/views/homePage/HomePage.vue'),
     //子路由
     children: [

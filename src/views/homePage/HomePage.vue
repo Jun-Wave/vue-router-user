@@ -3,7 +3,7 @@
     <!-- 使用tag会将router-link渲染成其他标签 -->
     <router-link to="/home" tag="a" replace>首页</router-link>
     <br />
-    <router-link :to="{path:`/product/${app_data}`}" tag="a" replace>商品</router-link>
+    <router-link :to="{path:`/product/${app_data2}`}" tag="a" replace>商品</router-link>
     <button @click="toProductPage">商品</button>
     <br />
     <router-link :to="{path:'/profile',query:{app_data2}}" tag="span" replace>个人</router-link>
